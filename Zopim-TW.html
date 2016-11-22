@@ -1,0 +1,30 @@
+<!-- END Happysocks Zendesk script -->
+<script src="//v2.zopim.com/?28r0XpQWaiQieEEZUgtiNTN89PwVL0r1" charset="utf-8" type="text/javascript"></script>
+<script charset="utf-8" type="text/javascript">
+$zopim(function() {
+$zopim.livechat.departments.filter('');
+$zopim.livechat.departments.setVisitorDepartment('Chinese');
+$zopim.livechat.concierge.setTitle('歡迎');
+$zopim.livechat.setLanguage('zh_tw');
+$zopim.livechat.concierge.setTitle('歡迎');
+$zopim.livechat.offlineForm.setGreetings('客服暫時關閉，如需幫助，請點擊查看常見問題與解答：http://support.happysocks.com/hc/zh-tw');
+
+$zopim.livechat.setGreetings({
+'online': '聯繫我們',
+'offline': '給我們留言'
+});
+
+$zopim.livechat.button.setPosition('bl');
+$zopim.livechat.window.setPosition('bl');
+$zopim.livechat.setOnConnected(checkdept);
+
+function checkdept() {
+var dept = $zopim.livechat.departments.getDepartment('Chinese');
+if(dept.status == 'offline') 
+$zopim.livechat.setStatus("offline");
+else 
+$zopim.livechat.setStatus("online");
+}
+});
+</script>
+<!-- END Happysocks Zendesk script -->

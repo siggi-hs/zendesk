@@ -1,0 +1,25 @@
+<!-- END Happysocks Zendesk script -->
+<script src="//v2.zopim.com/?28r0XpQWaiQieEEZUgtiNTN89PwVL0r1" charset="utf-8" type="text/javascript"></script>
+<script>
+$zopim(function() {
+  $zopim.livechat.button.setPosition('bl');
+  $zopim.livechat.window.setPosition('bl');
+  $zopim.livechat.window.setTitle('HS Sweden Customer Support');
+  $zopim.livechat.concierge.setName("HS Sweden") 
+  $zopim.livechat.setOnStatus(function(status) { 
+    if(status=="offline"){ 
+    $zopim.livechat.hideAll();}
+  });
+  $zopim.livechat.departments.filter('');
+  $zopim.livechat.departments.setVisitorDepartment('HS');
+  $zopim.livechat.setOnConnected(function() {
+    var dept = $zopim.livechat.departments.getDepartment('HS');
+    if(dept.status == 'offline') {
+      $zopim.livechat.setStatus("offline");
+    } else {
+      $zopim.livechat.setStatus("online");
+    }
+  });
+});
+</script>
+<!-- END Happysocks Zendesk script -->

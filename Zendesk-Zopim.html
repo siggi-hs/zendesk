@@ -10,23 +10,35 @@ zE(function() {
 });
 
 // Use 'Chat' on checkout, else use 'FAQ'.
-var url = window.location.href;
-var lastSegment = url.include('streamcheckout');
-if (lastSegment === true) {
-  window.zESettings = {
-    webWidget: {
-      launcher: {label: {'*': 'Chat'}},
-      chat: {suppress: false},
-      helpCenter: {suppress: true},
-      contactForm: {suppress: true}
-    }
-  };
-} else {
-  window.zESettings = {
-    webWidget: {
-      launcher: {label: {'*': 'FAQ'}}
-    }
-  };
+// var url = window.location.href;
+// var lastSegment = url.include('streamcheckout');
+// if (lastSegment === true) {
+//   window.zESettings = {
+//     webWidget: {
+//       launcher: {label: {'*': 'Chat'}},
+//       chat: {suppress: false},
+//       helpCenter: {suppress: true},
+//       contactForm: {suppress: true}
+//     }
+//   };
+// } else {
+//   window.zESettings = {
+//     webWidget: {
+//       launcher: {label: {'*': 'FAQ'}}
+//     }
+//   };
+// }
+
+Enabling Top3 help suggestions
+zE(function() {
+  zE.setHelpCenterSuggestions({search: 'top3'});
+});
+
+// Change label to FAQ
+window.zESettings = {
+  webWidget: {
+    launcher: {label: {'*': 'FAQ'}}
+  }
 }
 
 // Hide wiget on product pages.
@@ -42,6 +54,7 @@ zE(function() {
   $zopim(function() {
     $zopim.livechat.departments.filter('');
     $zopim.livechat.departments.setVisitorDepartment('HS');
+    $zopim.livechat.prechatForm.setGreetings('Welcome');
     $zopim.livechat.setOnConnected(function() {
 
     var dept = $zopim.livechat.departments.getDepartment('HS');
